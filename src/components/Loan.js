@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 import '../assets/css/Loan.css';
-
+import LoanModal from './LoanModal';
 
 class Loan extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { modal: false };
+    this.buttonAction = this.buttonAction.bind(this);
+  }
+
+  buttonAction() {
+    this.setState({modal: !this.state.modal})
+  }
 
   render() {
 
@@ -11,7 +20,7 @@ class Loan extends Component {
         tranche = this.props.tranche,
         available = this.props.available,
         annualised_return = this.props.annualised_return,
-        term_remaining = this.props.term_remaining/1440,//assuming term_remaining is in minutes (would make more sense given term times involved)
+        term_remaining = this.props.term_remaining/1440,
         ltv = this.props.ltv,
         amount = this.props.amount
 
@@ -26,7 +35,11 @@ class Loan extends Component {
           Total amount: £{amount}
         </p>
         <div>status</div>
-        <Button>Invest in Loan</Button>
+        <LoanModal 
+          title={this.props.title} 
+          amount={this.props.available} 
+          endsIn={this.props.term_remaining}
+          />
       </li>
     );
   }
