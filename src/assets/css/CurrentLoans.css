@@ -1,0 +1,13 @@
+.CurrentLoans{
+  background: #efefef;
+  padding:25px;
+}
+
+.CurrentLoans h1{
+  font-size: 18px;
+}
+
+.CurrentLoans ul{
+  list-style-type: none;
+  padding:0;
+}

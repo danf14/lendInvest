@@ -1,0 +1,15 @@
+.Loan{
+  width:100%;
+  background: #dcdcdc;
+  margin: 7px 0;
+  padding: 5px;
+  list-style-type: none;
+}
+
+.Loan h2{
+  font-size: 14px;
+}
+
+.Loan p{
+  font-size: 14px;
+}
