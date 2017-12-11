@@ -20,7 +20,7 @@ class Loan extends Component {
         tranche = this.props.tranche,
         available = this.props.available,
         annualised_return = this.props.annualised_return,
-        term_remaining = this.props.term_remaining/1440,
+        term_remaining = Math.round(this.props.term_remaining/1440),//assuming term_remaining is in minutes (would make more sense given term times involved)
         ltv = this.props.ltv,
         amount = this.props.amount
 
@@ -34,7 +34,7 @@ class Loan extends Component {
           LTV: {ltv}%<br />
           Total amount: £{amount}
         </p>
-        <div>status</div>
+        <div className="status">status</div>
         <LoanModal 
           title={this.props.title} 
           amount={this.props.available} 

@@ -29,7 +29,7 @@ class CurrentLoans extends Component {
             <Loan {...loanData.loans[i]} key={i} />
           );
         })}
-        <p>Total amount available for investments: £{this.state.available.reduce(getSum)}</p>
+        <p>Total amount available for investments: £{this.state.available.reduce(getSum)>0 ? this.state.available.reduce(getSum).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "No funds left to invest in"}</p>
       </Col>
     ) 
   }

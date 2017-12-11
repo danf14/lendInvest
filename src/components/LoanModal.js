@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
+import ModalForm from './ModalForm';
 
 class LoanModal extends Component {
 
@@ -21,14 +21,14 @@ class LoanModal extends Component {
         {console.log(this.state.modal)}
         <Modal isOpen={ this.state.modal } toggle={ this.toggle } >
           <ModalHeader toggle={this.toggle}>Invest in Loan<br />
-          {this.props.title}</ModalHeader>
+          </ModalHeader>
           <ModalBody>
+            {this.props.title}<br />
             Amount available: £{this.props.amount}<br />
-            Loan ends in: {this.props.endsIn/86400} days
+            Loan ends in: {Math.round(this.props.endsIn/1440)} days
           </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          <ModalFooter> 
+            <ModalForm />
           </ModalFooter>
         </Modal>
       </div>
